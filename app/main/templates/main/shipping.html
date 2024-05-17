@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block footer_stile %}
+	<link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+{% endblock footer_stile %}
+
+
+{% block content %}
+	<h2 class="mt-5 pt-5"><strong>{{ content }}</strong></h2>
+	{% for x in text_on_page %}
+		<h3>
+			{{x.title}}
+		</h3>
+		<p>{{x.description}}</p>
+		<p>{{x.price}}</p>
+	{% endfor %}
+{% endblock %}
+
+{% block footer %}
+	<footer class="py-4 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
+		</div>
+	</footer>
+{% endblock %}
