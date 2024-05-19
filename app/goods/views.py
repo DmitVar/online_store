@@ -8,10 +8,12 @@ def category(request):
 
 
 def catalog(request):
-    products = Products.objects.all()
+
+    goods = Products.objects.all()
+
     context = {
         "title": "HOME - Каталог",
-        "goods": products,
+        "goods": goods,
     }
     return render(request, "goods/catalog.html", context)
 
