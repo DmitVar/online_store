@@ -1,13 +1,14 @@
 from turtle import title
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.template import context
 from .models import Categories, Products
 
 
-def catalog(request):
-
-    goods = Products.objects.all()
-
+def catalog(request, category_slug):
+    if category_slug == "all":
+        goods = Products.objects.all()
+    else:
+        goods = get_object_or_404(Products.objects.filter(category__slug=category_slug))
     context = {
         "title": "HOME - Каталог",
         "goods": goods,
